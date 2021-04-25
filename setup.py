@@ -29,6 +29,8 @@ setup(
         "Bug Tracker": (
             'https://bitbucket.org/libateq/tryton-filestore-minio/issues'),
         "Source Code": 'https://bitbucket.org/libateq/tryton-filestore-minio',
+        "Documentation": (
+            'https://tryton-filestore-minio.readthedocs.io/en/latest/'),
         },
     keywords='tryton filestore s3 storage minio',
     classifiers=[
