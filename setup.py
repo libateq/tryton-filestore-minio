@@ -50,7 +50,9 @@ setup(
     python_requires='>=3.6',
     install_requires=[
         'minio',
-        'trytond>=5.0',
         ],
+    extras_require={
+        'tryton': ['trytond>=5.0'],
+        },
     zip_safe=False,
     )
