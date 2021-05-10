@@ -22,6 +22,7 @@ setup(
         "Uses the Python MinIO client to store Tryton files in S3 compatible "
         "object storage"),
     long_description=read('README.rst'),
+    long_description_content_type='text/x-rst',
     author='David Harper',
     author_email='tryton@libateq.org',
     url='https://bitbucket.org/libateq/tryton-filestore-minio',
