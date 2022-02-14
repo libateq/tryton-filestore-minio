@@ -7,8 +7,14 @@ the ``class`` option must be set to ``tryton_filestore_minio.FileStoreMinIO``
 in the ``[database]`` section of the
 :doc:`configuration file <trytond:topics/configuration>`.
 
-The connection settings must also be configured in the ``[minio]`` section of
-the configuration file.
+The normal bucket and connection settings must be configured in the
+``[minio]`` section of the configuration file.
+
+If the ``prefix`` used with the :py:mod:`~trytond.filestore` contains a
+colon (``:``), the part before the colon is used as the service name, and the
+part after the colon is used as the prefix.
+For these, the configuration settings for the service are taken from the
+``[minio_<service_name>]`` section of the configuration file.
 
 .. _config-minio.endpoint:
 

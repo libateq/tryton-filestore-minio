@@ -20,7 +20,7 @@ setup(
     version='0.1.2',
     description=(
         "Uses the Python MinIO client to store Tryton files in S3 compatible "
-        "object storage"),
+        "object storage services"),
     long_description=read('README.rst'),
     long_description_content_type='text/x-rst',
     author='David Harper',
