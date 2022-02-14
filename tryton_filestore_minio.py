@@ -42,12 +42,14 @@ class FileStoreMinIO(FileStore):
 
     def get(self, id, prefix=''):
         client, bucket, name = self._get_client_bucket_filename(id, prefix)
+        response = None
         try:
             response = client.get_object(bucket, name)
             return response.data
         finally:
-            response.close()
-            response.release_conn()
+            if response:
+                response.close()
+                response.release_conn()
 
     def set(self, data, prefix=''):
         id = uuid4().hex
