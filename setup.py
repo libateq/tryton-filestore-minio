@@ -18,7 +18,7 @@ def read(fname):
 
 setup(
     name='tryton-filestore-minio',
-    version='0.2.0',
+    version='0.2.1',
     description=(
         "Uses the Python MinIO client to store Tryton files in S3 compatible "
         "object storage services"),
