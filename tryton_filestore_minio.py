@@ -2,10 +2,12 @@
 # Please see the COPYRIGHT and README.rst files at the top level of this
 # package for full copyright notices, license terms and support information.
 from io import BytesIO
+from uuid import uuid4
+
 from minio import Minio
+
 from trytond.config import config
 from trytond.filestore import FileStore
-from uuid import uuid4
 
 
 def get_service_filename(id, prefix=None):
