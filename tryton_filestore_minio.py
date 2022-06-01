@@ -5,6 +5,7 @@ from io import BytesIO
 from uuid import uuid4
 
 from minio import Minio
+from urllib3 import PoolManager
 
 from trytond.config import config
 from trytond.filestore import FileStore
@@ -19,13 +20,19 @@ def get_service_filename(id, prefix=None):
 
 def get_client_bucket(service):
     section = '_'.join(filter(None, ['minio', service]))
+    client_args = {
+        'access_key': config.get(section, 'access_key', default=None),
+        'secret_key': config.get(section, 'secret_key', default=None),
+        'region': config.get(section, 'region', default=None),
+        'secure': config.get(section, 'secure', default=True),
+        }
+    ca_certs = config.get(section, 'ca_certs', default=None)
+    if client_args['secure'] and ca_certs:
+        client_args['http_client'] = PoolManager(
+            cert_reqs='CERT_REQUIRED', ca_certs=ca_certs)
     client = Minio(
         config.get(section, 'endpoint', default='s3.amazonaws.com'),
-        secure=config.getboolean(section, 'secure', default=True),
-        access_key=config.get(section, 'access_key', default=None),
-        secret_key=config.get(section, 'secret_key', default=None),
-        region=config.get(section, 'region', default=None),
-        )
+        **client_args)
     bucket = config.get(section, 'bucket', default='tryton')
     return client, bucket
 

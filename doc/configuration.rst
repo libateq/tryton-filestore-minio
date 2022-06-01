@@ -36,6 +36,18 @@ Indicates whether to connect using a secure (TLS) connection or not.
 
 The default value is: ``True``
 
+.. _config-minio.ca_certs:
+
+``ca_certs``
+============
+
+This is the path to the file that contains the CA certificate, or CA
+certificate bundle.
+When specified and using a secure connection only requests to servers that
+can be verified by the CA certificate or bundle will succeed.
+
+This value is optional.
+
 .. _config-minio.access_key:
 
 ``access_key``

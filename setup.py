@@ -5,6 +5,7 @@
 from io import open
 from os.path import dirname, join
 from re import sub
+
 from setuptools import setup
 
 
@@ -51,6 +52,7 @@ setup(
     python_requires='>=3.7',
     install_requires=[
         'minio',
+        'urllib3',
         ],
     extras_require={
         'tryton': ['trytond>=5.0'],
