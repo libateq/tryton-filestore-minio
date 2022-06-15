@@ -24,7 +24,7 @@ def get_client_bucket(service):
         'access_key': config.get(section, 'access_key', default=None),
         'secret_key': config.get(section, 'secret_key', default=None),
         'region': config.get(section, 'region', default=None),
-        'secure': config.get(section, 'secure', default=True),
+        'secure': config.getboolean(section, 'secure', default=True),
         }
     ca_certs = config.get(section, 'ca_certs', default=None)
     if client_args['secure'] and ca_certs:
